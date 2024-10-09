@@ -39,7 +39,7 @@ public class Articulo {
     @ElementCollection
     @CollectionTable(name = "cantidad", joinColumns = @JoinColumn(name = "articulo_id"))
     @Column(name = "cantidad")
-    private List<String> quantity;
+    private List<Integer> quantity;
 
     // Composición embebida
     @Embedded
@@ -65,6 +65,14 @@ public class Articulo {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
 
     public String getOurOrderN() {
@@ -115,11 +123,11 @@ public class Articulo {
         this.dimension = dimension;
     }
 
-    public Integer getQuantity() {
+    public List<Integer> getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(List<Integer> quantity) {
         this.quantity = quantity;
     }
 
@@ -137,5 +145,21 @@ public class Articulo {
 
     public void setPropiedadesMecanicas(PropiedadesMecanicas propiedadesMecanicas) {
         this.propiedadesMecanicas = propiedadesMecanicas;
+    }
+
+    public List<String> getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(List<String> remarks) {
+        this.remarks = remarks;
+    }
+
+    public String getInspectionResult() {
+        return inspectionResult;
+    }
+
+    public void setInspectionResult(String inspectionResult) {
+        this.inspectionResult = inspectionResult;
     }
 }

@@ -8,13 +8,13 @@ import java.math.BigDecimal;
 public class Dimension {
 
     @Column(name = "thickness", nullable = true)
-    private String thickness;
+    private BigDecimal thickness;
 
     @Column(name = "width", nullable = true)
-    private String width;
+    private BigDecimal width;
 
     @Column(name = "length", nullable = true)
-    private String length;
+    private BigDecimal length;
 
     public BigDecimal getThickness() {
         return thickness;

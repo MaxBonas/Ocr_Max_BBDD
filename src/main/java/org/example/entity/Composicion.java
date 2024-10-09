@@ -8,81 +8,79 @@ import java.math.BigDecimal;
 public class Composicion {
 
     @Column(name = "c", nullable = true)
-    private String C;
+    private BigDecimal C;
 
     @Column(name = "cr", nullable = true)
-    private String CR;
+    private BigDecimal CR;
 
     @Column(name = "mn", nullable = true)
-    private String MN;
+    private BigDecimal MN;
 
     @Column(name = "ni", nullable = true)
-    private String NI;
+    private BigDecimal NI;
 
     @Column(name = "p", nullable = true)
-    private String P;
+    private BigDecimal P;
 
     @Column(name = "s", nullable = true)
-    private String S;
+    private BigDecimal S;
 
     @Column(name = "si", nullable = true)
-    private String SI;
+    private BigDecimal SI;
 
     public BigDecimal getC() {
-        return c;
+        return C;
     }
 
     public void setC(BigDecimal c) {
-        this.c = c;
+        C = c;
     }
 
-    public BigDecimal getCr() {
-        return cr;
+    public BigDecimal getCR() {
+        return CR;
     }
 
-    public void setCr(BigDecimal cr) {
-        this.cr = cr;
+    public void setCR(BigDecimal CR) {
+        this.CR = CR;
     }
 
-    public BigDecimal getMn() {
-        return mn;
+    public BigDecimal getMN() {
+        return MN;
     }
 
-    public void setMn(BigDecimal mn) {
-        this.mn = mn;
+    public void setMN(BigDecimal MN) {
+        this.MN = MN;
     }
 
-    public BigDecimal getNi() {
-        return ni;
+    public BigDecimal getNI() {
+        return NI;
     }
 
-    public void setNi(BigDecimal ni) {
-        this.ni = ni;
+    public void setNI(BigDecimal NI) {
+        this.NI = NI;
     }
 
     public BigDecimal getP() {
-        return p;
+        return P;
     }
 
     public void setP(BigDecimal p) {
-        this.p = p;
+        P = p;
     }
 
     public BigDecimal getS() {
-        return s;
+        return S;
     }
 
     public void setS(BigDecimal s) {
-        this.s = s;
+        S = s;
     }
 
-    public BigDecimal getSi() {
-        return si;
+    public BigDecimal getSI() {
+        return SI;
     }
 
-    public void setSi(BigDecimal si) {
-        this.si = si;
+    public void setSI(BigDecimal SI) {
+        this.SI = SI;
     }
-
-    // Getters y setters
 }
