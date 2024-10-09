@@ -1,14 +1,20 @@
 package org.example.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import java.math.BigDecimal;
 
 @Embeddable
 public class Dimension {
 
-    private BigDecimal thickness;
-    private BigDecimal width;
-    private BigDecimal length;
+    @Column(name = "thickness", nullable = true)
+    private String thickness;
+
+    @Column(name = "width", nullable = true)
+    private String width;
+
+    @Column(name = "length", nullable = true)
+    private String length;
 
     public BigDecimal getThickness() {
         return thickness;

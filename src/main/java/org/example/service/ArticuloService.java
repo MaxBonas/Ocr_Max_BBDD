@@ -15,7 +15,10 @@ public class ArticuloService {
     private ArticuloRepository articuloRepository;
 
     public Articulo guardarArticulo(Articulo articulo) {
-        System.out.println("Datos recibidos: " + articulo);
+        // Aquí puedes hacer cualquier validación o ajuste necesario antes de guardar
+        if (articulo.getGrade() == null) {
+            articulo.setGrade("Default Grade"); // Puedes establecer un valor por defecto si es necesario
+        }
         return articuloRepository.save(articulo);
     }
 }

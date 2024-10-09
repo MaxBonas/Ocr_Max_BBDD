@@ -1,18 +1,32 @@
 package org.example.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import java.math.BigDecimal;
 
 @Embeddable
 public class Composicion {
 
-    private BigDecimal c;
-    private BigDecimal cr;
-    private BigDecimal mn;
-    private BigDecimal ni;
-    private BigDecimal p;
-    private BigDecimal s;
-    private BigDecimal si;
+    @Column(name = "c", nullable = true)
+    private String C;
+
+    @Column(name = "cr", nullable = true)
+    private String CR;
+
+    @Column(name = "mn", nullable = true)
+    private String MN;
+
+    @Column(name = "ni", nullable = true)
+    private String NI;
+
+    @Column(name = "p", nullable = true)
+    private String P;
+
+    @Column(name = "s", nullable = true)
+    private String S;
+
+    @Column(name = "si", nullable = true)
+    private String SI;
 
     public BigDecimal getC() {
         return c;

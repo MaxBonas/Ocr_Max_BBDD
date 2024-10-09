@@ -2,6 +2,7 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "articulos")
@@ -11,33 +12,52 @@ public class Articulo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "our_order_n")
+    // Proveedor en la esquina superior izquierda
+    @Column(name = "proveedor", nullable = true)
+    private String proveedor;
+
+    @Column(name = "our_order_n", nullable = false)
     private String ourOrderN;
 
-    @Column(name = "your_order_n")
+    @Column(name = "your_order_n", nullable = true)
     private String yourOrderN;
 
-    @Column(name = "grade")
+    @Column(name = "grade", nullable = true)
     private String grade;
 
-    @Column(name = "finish")
+    @Column(name = "finish", nullable = true)
     private String finish;
 
-    @Column(name = "coil_box")
+    @Column(name = "coil_box", nullable = true)
     private String coilBox;
 
+    // Dimensiones embebidas
     @Embedded
     private Dimension dimension;
 
-    @Column(name = "quantity")
-    private Integer quantity;
+    // Cantidad puede ser una lista de valores
+    @ElementCollection
+    @CollectionTable(name = "cantidad", joinColumns = @JoinColumn(name = "articulo_id"))
+    @Column(name = "cantidad")
+    private List<String> quantity;
 
+    // Composición embebida
     @Embedded
     private Composicion composicion;
 
+    // Propiedades Mecánicas embebidas
     @Embedded
     private PropiedadesMecanicas propiedadesMecanicas;
 
+    // Observaciones (remarks) como lista
+    @ElementCollection
+    @CollectionTable(name = "remarks", joinColumns = @JoinColumn(name = "articulo_id"))
+    @Column(name = "remark")
+    private List<String> remarks;
+
+    // Resultado de la inspección
+    @Column(name = "inspection_result", nullable = true)
+    private String inspectionResult;
 
     public Long getId() {
         return id;

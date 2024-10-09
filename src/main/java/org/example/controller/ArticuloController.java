@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/articulos")
-@CrossOrigin(origins = "*")  // Permitir solicitudes desde https://localhost
+@CrossOrigin(origins = "*")
 public class ArticuloController {
 
     @Autowired
@@ -17,8 +17,13 @@ public class ArticuloController {
 
     @CrossOrigin(origins = "*")
     @PostMapping
-    public ResponseEntity<Articulo> crearArticulo(@RequestBody Articulo articulo) {
-        Articulo nuevoArticulo = articuloService.guardarArticulo(articulo);
-        return new ResponseEntity<>(nuevoArticulo, HttpStatus.CREATED);
+    public ResponseEntity<?> crearArticulo(@RequestBody Articulo articulo) {
+        try {
+            Articulo nuevoArticulo = articuloService.guardarArticulo(articulo);
+            return new ResponseEntity<>(nuevoArticulo, HttpStatus.CREATED);
+        } catch (Exception e) {
+            // En caso de error, captura la excepción y responde con un mensaje amigable
+            return new ResponseEntity<>("Error al crear el artículo: " + e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }

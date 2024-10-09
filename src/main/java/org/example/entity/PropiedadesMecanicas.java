@@ -1,22 +1,27 @@
 package org.example.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
 
 @Embeddable
 public class PropiedadesMecanicas {
 
-    @Column(name = "rm")
-    private String rm;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "Rm", column = @Column(name = "Rm_test1")),
+            @AttributeOverride(name = "Rp02", column = @Column(name = "Rp02_test1")),
+            @AttributeOverride(name = "A50", column = @Column(name = "A50_test1")),
+            @AttributeOverride(name = "HRB", column = @Column(name = "HRB_test1"))
+    })
+    private Test test1;
 
-    @Column(name = "rp02")
-    private String rp02;
-
-    @Column(name = "a50")
-    private String a50;
-
-    @Column(name = "hrb")
-    private String hrb;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "Rm", column = @Column(name = "Rm_test2")),
+            @AttributeOverride(name = "Rp02", column = @Column(name = "Rp02_test2")),
+            @AttributeOverride(name = "A50", column = @Column(name = "A50_test2")),
+            @AttributeOverride(name = "HRB", column = @Column(name = "HRB_test2"))
+    })
+    private Test test2;
 
     // Getters y setters
 }
