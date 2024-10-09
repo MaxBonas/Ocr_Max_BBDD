@@ -12,7 +12,6 @@ public class Articulo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Proveedor en la esquina superior izquierda
     @Column(name = "proveedor", nullable = true)
     private String proveedor;
 
@@ -35,11 +34,11 @@ public class Articulo {
     @Embedded
     private Dimension dimension;
 
-    // Cantidad puede ser una lista de valores
+    // Cantidad puede ser una lista de valores (corrigiendo el tipo de dato a List<String>)
     @ElementCollection
     @CollectionTable(name = "cantidad", joinColumns = @JoinColumn(name = "articulo_id"))
     @Column(name = "cantidad")
-    private List<Integer> quantity;
+    private List<String> quantity;
 
     // Composición embebida
     @Embedded
@@ -49,7 +48,7 @@ public class Articulo {
     @Embedded
     private PropiedadesMecanicas propiedadesMecanicas;
 
-    // Observaciones (remarks) como lista
+    // Observaciones (remarks) como lista de strings
     @ElementCollection
     @CollectionTable(name = "remarks", joinColumns = @JoinColumn(name = "articulo_id"))
     @Column(name = "remark")
@@ -123,11 +122,11 @@ public class Articulo {
         this.dimension = dimension;
     }
 
-    public List<Integer> getQuantity() {
+    public List<String> getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(List<Integer> quantity) {
+    public void setQuantity(List<String> quantity) {
         this.quantity = quantity;
     }
 

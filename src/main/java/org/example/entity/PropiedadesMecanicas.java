@@ -23,5 +23,21 @@ public class PropiedadesMecanicas {
     })
     private Test test2;
 
+    public Test getTest1() {
+        return test1;
+    }
+
+    public void setTest1(Test test1) {
+        this.test1 = test1;
+    }
+
+    public Test getTest2() {
+        return test2;
+    }
+
+    public void setTest2(Test test2) {
+        this.test2 = test2;
+    }
+
     // Getters y setters
 }

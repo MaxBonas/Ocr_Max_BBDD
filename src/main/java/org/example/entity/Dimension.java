@@ -40,5 +40,5 @@ public class Dimension {
         this.length = length;
     }
 
-    // Getters y setters
+
 }
