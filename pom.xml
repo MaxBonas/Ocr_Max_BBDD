@@ -71,8 +71,15 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
                 <configuration>
-                    <mainClass>org.example.OcrMaxBbddApplication</mainClass>
+                    <mainClass>org.example.OcrMaxBbddApplication</mainClass> <!-- Aquí especificamos la clase principal -->
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
